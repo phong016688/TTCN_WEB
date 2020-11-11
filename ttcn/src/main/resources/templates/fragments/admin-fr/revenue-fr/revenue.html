@@ -1,0 +1,31 @@
+<div class="tile" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h3 class="tile-title">Thống kê danh thu</h3>
+    <form method="POST" th:action="@{/admin/revenue/search}">
+        Chọn thời gian(Tháng và năm):
+        <input name="bdaymonth" type="month">
+        <input class="btn btn-success" type="submit" value="Xem">
+    </form>
+    <table class="table table-hover" style="margin-top: 15px;">
+        <thead>
+        <tr>
+            <th width="10%">STT</th>
+            <th width="20%">Tháng-Năm</th>
+            <th width="30%">Danh thu</th>
+            <th width="20%">Chức năng</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="item : ${listRevenueDTOS}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.date}"></td>
+            <td th:text="${#numbers.formatDecimal(item.totalMoney, 0, 'COMMA', 0, 'POINT')+' đ'}"></td>
+            <td>
+                <a th:href="@{/admin/revenue/detail-{date}(date=${item.date})}">
+                    <button class="btn btn-primary" type="button">Detail</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

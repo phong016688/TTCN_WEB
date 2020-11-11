@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en" xmlns:th="www.thymeLeaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default-layout}">
+<head>
+    <title>Story's Flower</title>
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+<div layout:fragment="main-content">
+    <div class="product-title">
+        <h1 th:text="${product.productName}" id="product-title">Colorful flower bouquet</h1>
+        <p>
+            <span th:utext="${product.topicName}"></span>
+            <span> | </span>
+            <span th:utext="${product.nameOccasion}"></span>
+        </p>
+    </div>
+    <div class="row main-contain">
+        <div class="main-left col-12 col-lg-8 m-0">
+            <div class="product-image-container row d-flex justify-content-start">
+                <div class=" col-12 col-lg-9 d-flex align-items-center mb-3">
+                    <div class="css">
+                        <img th:src="${product.imageId!=null}? @{/api/image/} + ${product.imageId} : @{/img/no-img/png}"
+                             class="main-image-detail " alt="main-image"/>
+                    </div>
+                </div>
+                <div class="all-product-image col-12 col-lg-2 d-flex flex-lg-column align-content-lg-center my-lg-auto justify-content-center">
+                    <div th:if="${not #lists.isEmpty(product.imageIds)}" th:each="item : ${product.imageIds}">
+                        <img th:src="${item!=null}?@{/api/image/}+${item}:@{/img/no-img.png}"
+                             class="image-detail" alt="main-image" th:id="'image'+${item}"/>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="hr mb-5 mt-4"/>
+
+            <div class="custom-nav-tab">
+                <ul class="nav nav-tabs d-flex justify-content-center justify-content-lg-start">
+                    <li class="nav-item">
+                        <a class="active custom-nav nav-active px-3 pt-3 pb-2 px-md-5" id="item1" data-toggle="tab"
+                           href="#detail">Detail</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="custom-nav nav-not-active px-3 pt-3 pb-2 px-md-5" id="item2" data-toggle="tab"
+                           href="#meaning">Meaning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" custom-nav nav-not-active px-md-5 px-3 pt-3 pb-2" id="item3" data-toggle="tab"
+                           href="#review">Review</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="detail" class="tab-pane active">
+                        <h5 class=""><span>Descriptions of </span><span
+                                th:text="${product.productName}"></span></span></h5>
+                        <p th:text="${product.description}"></p>
+                    </div>
+                    <div id="meaning" class="tab-pane">
+                        <h5 class=""><span>Meaning of </span><span
+                                th:text="${product.productName}"></span></span></h5>
+                        <div class="mean-categorise" th:if="${not #lists.isEmpty(product.categories)}"
+                             th:each="item : ${product.categories}">
+                            <p th:if="${item.categoryMeaning != null}">
+                                <span class="category-name" th:text="${item.categoryName}"></span>
+                                <span>: </span>
+                                <span class="category-meaning" th:text="${item.categoryMeaning}"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="review" class="tab-pane mr-lg-5">
+                        <th:block th:replace="fragments/detail-fragments/review"></th:block>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr my-4"/>
+        </div>
+        <div class="main-right col-12 col-lg-4 m-0">
+            <div class="product-content">
+                <h5 class="main-title text-center mt-1 pb-2 w-100" th:text="${product.productName}">Colorful flower
+                    bouquet</h5>
+                <p class="price text-center">
+                    <span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')}"></span>
+                    <span> d</span>
+                </p>
+                <div class="rating-heart d-flex justify-content-between pb-1">
+                    <button id="favourite-button" class="fa fa-heart"></button>
+                    <button class="rating-button" type="button" data-toggle="modal" id="rate-button"
+                            data-target="#rateModal">
+                        <div class="row" id="div-rate-1">
+                            <div th:each="i : ${#numbers.sequence( 1,5,1)}">
+                                <i th:class="${i <= product.rating ? 'fa fa-star yellow' : 'fa fa-star'}"></i>
+                            </div>
+                        </div>
+                        <div class="row d-none" id="div-rate-2">
+                            <i class="fa fa-star" id="rate-1"></i>
+                            <i class="fa fa-star" id="rate-2"></i>
+                            <i class="fa fa-star" id="rate-3"></i>
+                            <i class="fa fa-star" id="rate-4"></i>
+                            <i class="fa fa-star" id="rate-5"></i>
+                        </div>
+                    </button>
+                </div>
+                <p class="product-des" th:text="${product.description}">
+                </p>
+                <div class="d-flex">
+                    <div th:if="${not #lists.isEmpty(product.categories)}" th:each="item : ${product.categories}">
+                        <a th:text="${item.categoryName}" class="d-inline-block m-2" th:href="@{/}"></a>
+                    </div>
+                </div>
+                <form>
+                    <div class="d-flex">
+                        <button type="button" class="button ml-4 d-inline-block" id="add-card-button">ADD CARD</button>
+                        <a href="/cart"><button type="button" class="button ml-4 d-inline-block" id="buy-now-button">BUY NOW</button></a>
+                    </div>
+                </form>
+            </div>
+            <hr class="hr my-5"/>
+            <div class="popular-product">
+                <h5 class="main-title pb-2">Best rating products</h5>
+                <div th:if="${not #lists.isEmpty(bestRatingProducts)}">
+                    <div th:each="item : ${bestRatingProducts}">
+                        <th:block th:replace="fragments/detail-fragments/small-product">
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="hr my-5"/>
+
+            <div class="view-your-card" th:if="${not #lists.isEmpty(session.carts)}">
+                <h5 class="main-title pb-2">your cards</h5>
+                <div th:if="${not #lists.isEmpty(session.carts)}">
+                    <div th:each="item : ${session.carts}">
+                        <a class="mt-3 p-2 d-flex" th:href="@{/product/} +${item.productDTO.id}">
+                            <img class="small-circle-image rounded-circle mr-3 align-items-center"
+                                 th:src="${item.productDTO.imageId!=null}? @{/api/image/} + ${item.productDTO.imageId} : @{/img/no-img/png}"
+                                 alt="popular-product"/>
+                            <div class="d-inline-block align-items-center">
+                                <p class="name-product text-left font-weight-normal mb-1 text-break"
+                                   th:text="${item.productDTO.productName}">Colorful bouquet</p>
+                                <p class="price text-left mb-0"><span>Price: </span><span
+                                        th:text="${#numbers.formatDecimal(item.productDTO.price, 0, 'COMMA', 0, 'POINT')}">600,000</span><span>d</span></span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="rateModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Product Ratting</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input id="activityId" th:value="${product.id}" type="text" hidden/>
+                    <div class="row d-flex justify-content-center">
+                        <i class="fa fa-star fa-2x rating-star ml-1" id="star-1"></i>
+                        <i class="fa fa-star fa-2x rating-star ml-1" id="star-2"></i>
+                        <i class="fa fa-star fa-2x rating-star ml-1" id="star-3"></i>
+                        <i class="fa fa-star fa-2x rating-star ml-1" id="star-4"></i>
+                        <i class="fa fa-star fa-2x rating-star ml-1" id="star-5"></i>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" id="button-save-rating" class="btn btn-success" data-dismiss="modal">Save
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<th:block layout:fragment="custom-script">
+    <script src="/js/rating.js"></script>
+    <script src="/js/favourite.js"></script>
+    <script src="/js/image.js"></script>
+    <script src="/js/detail.js"></script>
+    <script src="/js/review.js"></script>
+    <script src="/js/cart.js"></script>
+
+</th:block>
+</body>
+</html>

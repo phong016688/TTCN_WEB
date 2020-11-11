@@ -1,0 +1,25 @@
+<th:block th:fragment="list-occasion" xmlns:th="www.thymeLeaf.org">
+    <div id="image-container mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="image-link mx-2 my-2 p-2" th:each="item: ${occasions}"
+                 th:if="${not #lists.isEmpty(occasions)}">
+                <a th:href="@{/product/{id}(id=${item.id})}">
+                    <div><img
+                            class="image"
+                            th:src="${item.imageId!=null}?@{/api/image/}+${item.imageId}:@{/img/no-img.png}">
+                    </div>
+                    <p class="name-product mt-2" th:text="${item.productName}">Love's flower</p>
+                    <div class="d-flex justify-content-center">
+                        <option th:each="i : ${#numbers.sequence( 1,5,1)}">
+                            <i th:class="${i <= item.rating ? 'fa fa-star yellow' : 'fa fa-star'}"></i>
+                        </option>
+                    </div>
+                    <p class="main-p my-2">Price: <span
+                            th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}"></span><span> d</span>
+                    </p>
+                    <button class="view-detail-button">VIEW DETAILS</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</th:block>

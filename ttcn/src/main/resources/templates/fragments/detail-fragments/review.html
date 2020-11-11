@@ -1,0 +1,49 @@
+<th:block th:fragment="review" xmlns:th="www.thymeLeaf.org">
+    <h4 class="mb-2">Reviews</h4>
+    <form id="review-form">
+        <div class="d-flex  mb-3">
+            <img class="rounded-circle user-thumbnail mr-2" height="35" src="/img/default_profile_picture.png"
+                 width="35">
+            <div class="w-100 p-0">
+                <textarea class="add-review w-100 pr-0 pb-0 pl-3 pt-2" id="content"
+                          placeholder="Add reviews for product"></textarea>
+                <button class="button mt-1" id="add-review-button" type="button">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div class="d-none">
+        <div class="d-flex mb-3" id="copy-review">
+            <img class="rounded-circle user-thumbnail mr-2" height="35" src="/img/default_profile_picture.png"
+                 width="35">
+            <div class="main-review px-2 pt-2 w-100">
+                <p class="name-date-review mb-1">
+                    <span class="user-name">Story</span> <span class="date-review">  02/12/1198</span>
+                </p>
+                <p class="review-content">
+                    Flowers is very beautifull
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="place-to-copy">
+
+    </div>
+    <div id="main-review" th:each="item : ${reviews}"
+         th:if="${not #lists.isEmpty(reviews)}">
+        <p class="d-none" id="list-size" th:text="${#lists.size(reviews)}"></p>
+
+        <div class="d-flex mb-3" id="append-review">
+            <img class="rounded-circle user-thumbnail mr-2" height="35" src="/img/default_profile_picture.png"
+                 width="35">
+            <div class="main-review px-2 pt-2 w-100">
+                <p class="name-date-review mb-1">
+                    <span class="user-name" th:text="${item.firstname + ' ' + item.lastname}">Story</span> <span
+                        class="date-review" th:text="${item.dateCreate}">  02/12/1198</span>
+                </p>
+                <p class="review-cotent" th:text="${item.content}">
+                    Flowers is very beautifull
+                </p>
+            </div>
+        </div>
+    </div>
+</th:block>

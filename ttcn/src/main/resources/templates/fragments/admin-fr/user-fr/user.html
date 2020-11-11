@@ -1,0 +1,54 @@
+<div class="col-md-12" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="tile">
+        <h3 class="tile-title">User Management</h3>
+        <a href="/admin/user/add" th:if="${userLogin.role == 'ADMIN'}">
+            <button class="btn btn-info" type="button">Add User</button>
+        </a>
+        <div class="table-responsive" style="margin-top: 10px;">
+            <label style="color: #0f6674" th:text="${msg}"></label>
+            <table class="table" style="margin-top: 10px;">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Function</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${listUser }">
+                    <td th:text="${item.id}">Otto</td>
+                    <td th:text="${item.firstName +' '+ item.lastName}">1</td>
+                    <td th:text="${item.email}">Mark</td>
+                    <td th:text="${item.role}">Otto</td>
+                    <td>
+                        <div th:if="${userLogin.role == 'ADMIN'}">
+                            <a th:href="@{/admin/user/edit/{id}(id=${item.id})}">
+                                <button class="btn btn-success" type="button">Edit</button>
+                            </a>
+                            <a th:href="@{/admin/user/del/{id}(id=${item.id})}" th:if="${userLogin.id != item.id}">
+                                <button class="btn btn-danger" onclick="return confirm('Xác nhận xóa User?')"
+                                        type="button">Delete
+                                </button>
+                            </a>
+                        </div>
+                        <div th:if="${userLogin.role == 'USER' && userLogin.id == item.id}">
+                            <a th:href="@{/admin/user/edit/{id}(id=${item.id})}">
+                                <button class="btn btn-success" type="button">Edit</button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <!-- <tr>
+                     <td>2</td>
+                     <td>Jacob</td>
+                     <td>Thornton</td>
+                     <td>Thornton</td>
+                     <td>@fat</td>
+                 </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

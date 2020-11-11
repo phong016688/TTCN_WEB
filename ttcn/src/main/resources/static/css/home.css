@@ -1,0 +1,79 @@
+.main-banner {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.occasion-image > img {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 160px;
+    height: 160px;
+}
+
+.occasion-image {
+    margin: 0 10px 0;
+}
+
+.occasion-image > p {
+    margin-top: 5px;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    text-align: center;
+    font-weight: bold;
+    color: #007CAD;
+    font-size: 17px;
+}
+
+.occasion-image:hover > p {
+    text-decoration: #007CAD;
+}
+
+@media only screen and (max-width: 750px) {
+    .occasion-image > img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .occasion-image > p {
+        font-size: 15px;
+    }
+
+    .occasion-image {
+        margin: 0 7px 0;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .occasion-image > img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .occasion-image > p {
+        font-size: 14px;
+    }
+
+    .occasion-image {
+        margin: 0 5px 0;
+    }
+}
+
+.deals-of-day > h1 {
+    font-style: italic;
+    margin: 20px 0px 20px;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    color: #211f1f;
+}
+
+.image-link:hover {
+    outline: 1px solid #eee;
+    box-shadow: 0 2px 4.7px .4px rgba(0, 0, 0, .1);
+}
+
+.image-link:hover .view-detail-button {
+    visibility: visible;
+}
+
+
+
+

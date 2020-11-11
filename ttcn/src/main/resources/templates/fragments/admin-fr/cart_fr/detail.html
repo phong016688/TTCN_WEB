@@ -1,0 +1,78 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <div>
+        <h4>Basic information</h4>
+    </div>
+    <div class="row invoice-info">
+        <div class="col-4">From
+            <address>
+                <strong>Full Name: </strong>
+                <label th:text="${customerCartDTO.fullName}">Full Name</label><br>
+                <strong>Buy Date: </strong>
+                <label th:text="${#dates.format(customerCartDTO.buyDate, 'HH:mm dd-MM-yyyy')}">Buy Date</label><br>
+
+                <strong>Full Name: </strong>
+                <label th:text="${ customerCartDTO.address}">Address</label><br>
+                <strong>Phone Number: </strong>
+                <label th:text="${ customerCartDTO.phoneNumber}">Phone Number</label><br>
+                <strong>Email: </strong>
+                <label th:text="${ customerCartDTO.email}">Email</label><br>
+                <strong>Message to us: </strong>
+                <label th:text="${ customerCartDTO.messagesToUs}">Message to us</label><br>
+            </address>
+        </div>
+        <div class="col-4">To
+            <address>
+                <strong>Full Name: </strong>
+                <label th:text="${ recipientCartDTO.fullName}">Full Name</label><br>
+                <strong>Address: </strong>
+                <label th:text="${ recipientCartDTO.address}">Address</label><br>
+                <strong>Phone Number: </strong>
+                <label th:text="${ recipientCartDTO.phoneNumber}">Phone Number</label><br>
+                <strong>Delivery date: </strong>
+                <label th:text="${ recipientCartDTO.deliveryDate}">Delivery date</label><br>
+                <strong>Delivery Hour: </strong>
+                <label th:text="${ recipientCartDTO.deliveryHour}">Delivery Hour</label><br>
+            </address>
+        </div>
+
+    </div>
+    <div>
+        <h4>Order information</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Product</th>
+                <th>Picture</th>
+                <th>Quatity</th>
+                <th>messageToRecipient</th>
+                <th>Money</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="item : ${productCartDTO}">
+                <td th:text="${item.id}"/>
+                <td th:text="${ item.productName }"></td>
+                <td>
+                    <img th:src="${item.imageId!=null}? @{/api/image/} + ${item.imageId} : @{/img/no-img/png}"
+                         class="image-detail" alt="main-image"/>
+                </td>
+                <td th:text="${ item.quantity}"></td>
+                <td th:text="${ item.messageToRecipient}"></td>
+                <td th:text="${#numbers.formatDecimal(item.quantity * item.price , 0, 'COMMA', 0, 'POINT')+' đ'}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <strong style="font-size: 25px;">The total amount of all orders:</strong>
+    <label style="font-size: 25px;" th:text="${#numbers.formatDecimal(totalMoney , 0, 'COMMA', 0, 'POINT')+' đ'}">Full
+        Name</label><br>
+    <div style="margin-top: 25px;">
+
+        <a class="btn btn-info" th:href="@{/admin/cart/order/{id}(id=${id})}" th:if="${status == 0}">Order
+            confirmation</a>
+        <span class="btn btn-danger" th:if="${status == 1}">Đã xử lý</span>
+    </div>
+</div>

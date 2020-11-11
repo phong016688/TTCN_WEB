@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="master.xml" relativeToChangelogFile="true"/>
+    <include file="testdata/user_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/user_roles_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/image_test.xml" relativeToChangelogFile="true"/>
+    <include file="testdata/occasion_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/topic_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/category_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/product_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/product_image_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/deal_product.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/rating_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/product_category_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/favourite_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/review_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/customer_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/recipient_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/cart_test.sql" relativeToChangelogFile="true"/>
+    <include file="testdata/buy_product_test.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>

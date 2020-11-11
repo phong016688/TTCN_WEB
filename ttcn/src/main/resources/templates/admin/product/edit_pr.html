@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en" xmlns:th="www.thymeLeaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/admin-layout}">
+<head>
+    <title>Customer - [Story's Flower]</title>
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/admin/main.css">
+
+</head>
+<body>
+<div layout:fragment="left-bar">
+    <th:block th:replace="fragments/admin-fr/left_bar">
+    </th:block>
+
+</div>
+<div layout:fragment="main-content">
+
+    <th:block th:replace="fragments/admin-fr/product-fr/product_detail">
+    </th:block>
+
+</div>
+</div>
+<th:block layout:fragment="custom-script">
+    <script src="/js/cart.js"></script>
+    <script src="/js/admin/jquery-3.3.1.min.js"></script>
+    <script src="/js/admin/popper.min.js"></script>
+    <script src="/js/admin/bootstrap.min.js"></script>
+    <script src="/js/admin/main.js"></script>
+    <script src="/js/admin/image.js"></script>
+    <script src="/js/rating.js"></script>
+    <script src="/js/favourite.js"></script>
+    <script src="/js/image.js"></script>
+    <script src="/js/detail.js"></script>
+    <script src="/js/review.js"></script>
+    <script src="/js/cart.js"></script>
+
+
+</th:block>
+</body>
+</html>

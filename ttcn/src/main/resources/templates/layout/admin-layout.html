@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <th:block th:replace="fragments/admin-fr/head"></th:block>
+        <th:block th:replace="fragments/head"></th:block>
+        <title layout:title-pattern="">Story's Flower</title>
+    </head>
+
+    <body>
+        <!-- Header, navbar,...-->
+        <header th:replace="fragments/admin-fr/header :: header">This header content is going to be replaced.</header>
+
+
+        <!-- left bar -->
+        <!--<div class="app-sidebar__overlay" data-toggle="sidebar">-->
+
+        <div layout:fragment="left-bar">
+
+        </div>
+        <!--</div>-->
+        <!-- main content -->
+        <main class="app-content">
+            <div layout:fragment="main-content">
+            </div>     <!-- footer -->
+        </main>
+
+
+        <!-- default script (bootstrap, jquery) -->
+        <th:block th:replace="fragments/script">
+        </th:block>
+
+        <!-- your custom script -->
+        <th:block layout:fragment="custom-script">
+
+        </th:block>
+    </body>
+
+</html>
+

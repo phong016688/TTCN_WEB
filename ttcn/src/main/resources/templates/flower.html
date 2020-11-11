@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/default-layout}" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="www.thymeLeaf.org">
+<head>
+    <title>Story's Flower</title>
+    <link href="/css/home.css" rel="stylesheet">
+    <link href="/css/product.css" rel="stylesheet">
+    <link href="/css/detail.css" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="main-content">
+    <div class="row mx-3 mx-md-5 d-flex justify-content-center mt-5">
+        <div th:each="item: ${occasions}" th:if="${not #lists.isEmpty(occasions)}">
+            <a class="occasion-image d-inline-block" th:href="@{/occasion/} + ${item.occasionId}">
+                <img
+                        alt="${item.nameOccasion}"
+                        class="rounded-circle" th:src="${item.imageId!=null}?@{/api/image/}+${item.imageId}:@{/img/no-img.png}">
+                <p th:text="${item.nameOccasion}"></p>
+            </a>
+        </div>
+    </div>
+
+    <div class="product-title">
+        <h1><span th:text="${topic}"> Flowers</span></h1>
+        <p>
+            <span th:text="${#lists.size(flowers)}"></span>
+            <span th:text="${#lists.size(flowers) <2 } ? 'Result' : 'Results'">Results</span>
+        </p>
+    </div>
+    <div class="row main-contain">
+        <div id="image-container mx-auto">
+            <div class="row d-flex  justify-content-center">
+                <div class="image-link mx-2 my-2 p-2" th:each="item: ${flowers}"
+                     th:if="${not #lists.isEmpty(flowers)}">
+                    <a th:href="@{/product/{id}(id=${item.id})}">
+                        <div><img
+                                class="image"
+                                th:src="${item.imageId!=null}?@{/api/image/}+${item.imageId}:@{/img/no-img.png}">
+                        </div>
+                        <p class="name-product mt-2" th:text="${item.productName}">Love's flower</p>
+                        <div class="d-flex justify-content-center">
+                            <option th:each="i : ${#numbers.sequence( 1,5,1)}">
+                                <i th:class="${i <= item.rating ? 'fa fa-star yellow' : 'fa fa-star'}"></i>
+                            </option>
+                        </div>
+                        <p class="main-p my-2">Price: <span
+                                th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}"></span><span> d</span>
+                        </p>
+                        <button class="view-detail-button">VIEW DETAILS</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<th:block layout:fragment="custom-script">
+</th:block>
+</body>
+</html>

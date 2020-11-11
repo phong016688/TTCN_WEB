@@ -1,0 +1,120 @@
+<div class="col-md-12" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="tile">
+        <h3 class="tile-title">List of customers</h3>
+        <div class="table-responsive" style="height: 600px;">
+            <div style="height: 530px;">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Full Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${customerlist.getPageList()}">
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.fullName}"></td>
+                        <td th:text="${item.address}"></td>
+                        <td th:text="${item.phoneNumber}"></td>
+                        <td th:text="${item.email}"></td>
+                        <!--  <td>
+                             <span th:id ="${item.id}">
+                                 <a href="javascript:void(0)" th:onclick="'active('+ *{item.id} +','+ 1 +')'">
+                                 <img src="/img/admin/images/ac.png" class="image">
+                             </a>
+                             </span>
+                          </td>-->
+                        <td>
+                            <a class="page-link" style="width: 90px; background: pink;"
+                               th:href="@{/admin/customer/detail/{id}(id=${item.id})}">
+                                <span>Click me</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="pagination">
+                <li
+                        th:class="${currentIndex == 1}? 'page-item disabled' : 'page-item'">
+                    <a class="page-link" th:href="@{/admin/customer/index}">First</a>
+                </li>
+                <li
+                        th:class="${currentIndex == 1}? 'page-item disabled': 'page-item' ">
+                    <a aria-label="Previous" class="page-link"
+                       th:href="@{|${baseUrl}${currentIndex - 1}|}"
+                       title='Go to previous page'><span aria-hidden="true">«</span>
+                        <span class="sr-only">Previous</span></a>
+                </li>
+                <li th:class="${item == currentIndex ? 'page-item active' :'page-item' }"
+                    th:each="item : ${#numbers.sequence(beginIndex,endIndex)}">
+                    <a class="page-link" th:href="@{|${baseUrl}${item}|}"> <span
+                            th:text='${item}'>1</span>
+                    </a>
+                </li>
+                <li
+                        th:class="${currentIndex == totalPageCount}? 'page-item disabled': 'page-item'">
+                    <a aria-label="Next" class="page-link"
+                       th:href="@{|${baseUrl}${currentIndex + 1}|}" title='Go to next page'><span
+                            aria-hidden="true">»</span> <span class="sr-only">Next</span></a>
+                </li>
+                <li
+                        th:class="${currentIndex == totalPageCount}? 'page-item disabled':'page-item'">
+                    <a class="page-link" th:href="@{|${baseUrl}${totalPageCount}|}">Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function active(nid, active) {
+        var url_get_picture_active = "/admin/ajax/active";
+        var tmp = "#" + nid;
+        $.ajax({
+            type: "POST",
+            url: url_get_picture_active,
+            dataType: "html",
+            data: {
+                "nid": nid,
+                "active": active,
+            },
+            success: function (data) {
+                tmp = "#" + nid;
+                if (active == 1) {
+                    var ac = "<a href='javascript:void(0)'  onclick='active(" + nid + " ,0);'> " +
+                        "<img src='/img/admin/images/unac.jpg' class='image'> " +
+                        "</a>";
+                    $(tmp).html(ac);
+                } else {
+                    var de = "<a href='javascript:void(0)'  onclick='active(" + nid + " ,1);'> " +
+                        "<img src='/img/admin/images/ac.png' class='image'> " +
+                        "</a>";
+                    $(tmp).html(de);
+                }
+            },
+            error: function (e) {
+            }
+        });
+        return false;
+    }
+
+    /*function numberNoActive(){
+        var url_get_number_no_active = '<%=request.getContextPath()%>/admin/news/numbernoactive';
+        $.ajax({
+            url:url_get_number_no_active,
+            dataType: "html",
+            data: {
+            },
+            success: function(data) {
+                $("#no_ac").html(data);
+                $("#no_ac1").html(data);
+
+            },
+        });
+        return false;
+    }*/
+</script>

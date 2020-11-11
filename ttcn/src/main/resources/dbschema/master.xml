@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="R1.0/create_user_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_user_roles_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_image_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_category_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_topic_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_occasion_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_product_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_image_product_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_deal_product_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_rating_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_product_category_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_favourite_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_review_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_customer_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_recipient_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_cart_table.xml" relativeToChangelogFile="true"/>
+    <include file="R1.0/create_buy_product_table.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

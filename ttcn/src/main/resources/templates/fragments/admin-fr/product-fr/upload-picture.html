@@ -1,0 +1,90 @@
+<th:block xmlns:th="www.thymeLeaf.org" th:fragment="upload-picture">
+    <div class="col-8 d-flex align-items-center mb-3">
+        <div class="css">
+            <img id="image-on-detail-page"
+                 th:src="${product.imageId!=null}? @{/api/image/} + ${product.imageId} : @{/img/no-img.png}"
+                 class="main-image-detail " alt="main-image"/>
+            <label id="btn-update"
+                   th:class="${product.imageIds.size() != 0}?@{p-image }:@{p-image d-none}"
+                   data-toggle="modal" data-target="#exampleModalCenter">
+                <i class="fa fa-camera fa-lg upload-button m-0 md-2"></i>
+                <p class="message p-2">Update image</p>
+            </label>
+            <input id='max-number-upload-images' th:value="6" type="hidden">
+        </div>
+    </div>
+    <div class="all-upload-image product-image col-10 d-flex  justify-content-center thumbnails">
+        <th:block th:if="${not #lists.isEmpty(product.imageIds)}"
+                  th:each="item,iter: ${product.imageIds}">
+            <div class="position-relative m-1 ">
+                <img th:class="${iter.index != 0}?@{image-detail thumbnail-image animated-background}:@{image-detail thumbnail-image animated-background image-active}"
+                     th:src="${item!=null}?@{/api/image/}+${item}:@{/img/no-img.png}"
+                     alt="main-image" th:id="'image'+${item}"/>
+                <label th:id="'icon_' + ${item}"
+                       th:class="@{p-image icon-update}"
+                       data-toggle="modal" data-target="#exampleModalCenter">
+                    <i class="fa fa-camera fa-lg upload-button m-0 md-2"></i>
+                </label>
+            </div>
+        </th:block>
+        <th:block th:if="${product.imageIds.size() != 6}">
+            <div class="position-relative m-1">
+                <img th:class="@{image-detail thumbnail-image animated-background}"
+                     th:src="@{/img/no-img.png}"
+                     alt="main-image" th:id="'image0'"/>
+                <label
+                        id = "btn-upload"
+                        th:class="@{p-image}"
+                        data-toggle="modal" data-target="#exampleModalCenter">
+                    <i class="fa fa-camera fa-lg upload-button m-0 md-2"></i>
+                </label>
+            </div>
+        </th:block>
+    </div>
+    </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Upload image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="upload-image-form"
+                      method="post"
+                      enctype="multipart/form-data">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    <div class="modal-body">
+                        <input class="d-none" th:value="${product.id}" id="productId">
+                        <div id="image-error" class="alert alert-danger d-none"></div>
+                        <div id="image-preview-container">
+                            <div class="image-preview mb-3">
+                                <h6 class="text-center font-weight-bold">Preview</h6>
+                                <img id="image"
+                                     th:src="@{/img/no-img.png}"
+                                     alt=""/>
+                                <div id="image-name"></div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone-wrapper d-flex justify-content-center align-items-center">
+                            <div class="dropzone-desc">
+                                <i class="fa fa-cloud-upload fa-3x"></i>
+                                <div>Choose an image file or drag it here.</div>
+                            </div>
+                            <input type="file" name="img_logo" class="dropzone"
+                                   id="upload-image"
+                                   aria-describedby="inputGroupFileAddon01" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div id="save-and-cancel-container" class="modal-footer">
+                        <input id="btn-submit" type="submit" class="btn btn-success" value="Upload"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>

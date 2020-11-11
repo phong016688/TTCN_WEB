@@ -1,0 +1,55 @@
+<footer class="page-footer pt-3 pt-sm-4 bg-primary " th:fragment="footer" xmlns:th="http://www.thymeleaf.org">
+    <!-- Footer -->
+    <!-- Footer Links -->
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v5.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div attribution=setup_tool
+         class="fb-customerchat"
+         page_id="114496696651471"
+         theme_color="#13cf13">
+    </div>
+    <div class="container">
+        <a class="d-flex justify-content-center mt-20 mb-20" th:href="@{/}">
+            <img alt="logo" src="/img/logo.png">
+        </a>
+        <div class="footer-quote">
+            <p class="quote">Flowers always make people better, happier, they</p>
+            <p class="quote">are sunshine and medicine for the soul. </p>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <h4>CONTACT</h4>
+                <p class="mb-2">We are hear for 24 hours day</p>
+                <p class="contact"><i class="fa fa-phone mr-2"></i>0329381641</p>
+                <p class="contact"><i class="fa fa-envelope mr-2"></i>story'sflower@gmail.com</p>
+                <p class="contact"><i class="fa fa-comment-dots mr-2"></i>Click to chat</p>
+            </div>
+            <div class="col-5">
+                <h4>CONNECT</h4>
+            </div>
+        </div>
+        <div>
+            <p></p>
+        </div>
+    </div>
+
+</footer>

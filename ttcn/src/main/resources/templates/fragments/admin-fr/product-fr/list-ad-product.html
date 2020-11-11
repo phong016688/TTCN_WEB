@@ -1,0 +1,48 @@
+<th:block xmlns:th="www.thymeLeaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" th:fragment="list-ad-product">
+    <div class="col-md">
+        <div class="tile">
+            <h3 class="tile-title">List Flowers Table</h3>
+            <a href="/admin/product/add/1"><button class="btn btn-success">Add Product</button></a>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Occasion</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                    <th>Manages</th>
+                </tr>
+                </thead>
+                <tbody>
+                <div th:if="${not #lists.isEmpty(list_occasion)}"
+                     th:each="item: ${list_occasion}">
+                    <tr>
+                        <td><span th:text="${item.Id}"></span></td>
+                        <td>
+                            <img th:src="${item.imageId!=null}? @{/api/image/} + ${item.imageId} : @{/img/no-img/png}"
+                                 class="image-detail" alt="main-image"/>
+                        </td>
+                        <td><span th:text="${occasion.nameOccasion}"> </span></td>
+                        <td><span th:text="${item.productName}"></span></td>
+
+                        <td><p th:text="${item.price}"></p></td>
+                        <td><p th:text="${item.rating}"></p></td>
+
+                        <td>
+                            <a th:href="@{/admin/product/edit/{id}(id=${item.Id})}" >
+                                <button class="btn btn-success">Edit</button>
+                            </a>
+                            |
+                            <a th:href="@{/admin/product/del/occ1/{id}(id=${item.Id})}" >
+                                <button class="btn btn-secondary">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</th:block>

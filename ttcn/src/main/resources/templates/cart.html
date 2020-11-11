@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/default-layout}" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="www.thymeLeaf.org">
+<head>
+    <title>Story's Flower</title>
+    <link href="/css/home.css" rel="stylesheet">
+    <link href="/css/detail.css" rel="stylesheet">
+    <link href="/css/cart.css" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="main-content">
+
+    <div class="row main-contain">
+        <div class="col-12 col-lg-8 m-0 mb-3 pb-4">
+            <div class="shopping-cart mb-3" th:if="${not #lists.isEmpty(carts)}">
+                <h5 class="px-3 py-1 title-cart">
+                    My cart
+                </h5>
+                <p class="d-none" id="cart-list-size" th:text="${#lists.size(carts)}"></p>
+                <table class="mx-auto pb-2" style="width:97%">
+                    <tr>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr th:each="item : ${carts}" th:id="product + ${item.productDTO.id}">
+                        <td class="text-center p-1">
+                            <div class="cart-image">
+                                <img
+                                        alt="${item.productDTO.productName}"
+                                        class="main-image-detail rounded-circle" th:src="${item.productDTO.imageId!=null}?@{/api/image/}+${item.productDTO.imageId}:@{/img/no-img.png}">
+                            </div>
+                        </td>
+                        <td th:text="${item.productDTO.productName}">
+                        </th>
+                        <td class="text-center" th:text="${item.productDTO.price}"></td>
+                        <td class="text-center" th:text="${item.quantity}"></td>
+                        <td class="text-center" id="delete-cart"><i class="fa fa-trash delete"
+                                                                    th:id="delete + ${item.productDTO.id}"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right" colspan="4">
+                            Totals:
+                        </td>
+                        <td>
+                            <span id="total-cart"
+                                  th:text="${#numbers.formatDecimal(totalcart, 0, 'COMMA', 0, 'POINT')}"></span>
+                            <span> d</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--
+                        <div class="shopping-cart mb-3 pb-2">
+                           &lt;!&ndash; <h5 class="px-3 py-1 title-cart">
+                                Time delivery and payment
+                            </h5>
+                            <div class="p-2 d-flex justify-content-around">
+                                <div>
+                                    <label>Delivery date: </label>
+                                    <input type="date" id="date-time-picker" name="deliveryDate" placeholder=""
+                                           class="custom-form-control d-inline-block"/>
+                                </div>
+                                <div>
+                                    <label>Hours: </label>
+                                    <input id="appt-time" class="custom-form-control d-inline-block" type="time" name="deliveryTime"
+                                           value="13:30">
+                                </div>
+                            </div>&ndash;&gt;
+                            &lt;!&ndash;<div class="d-flex justify-content-start ml-3">
+                                <h6>
+                                    Payment method:
+                                </h6>
+                                <div class="ml-2">
+                                    <p>
+                                        <input type="radio" value="1" name="paymentMethod"> Pay by credit cart
+                                    </p>
+                                    <p>
+                                        <input type="radio" value="2" name="paymentMethod"> Pay by ATM, Internet Banking, Bank
+                                        transfer
+                                    </p>
+                                    <p>
+                                        <input type="radio" value="3" name="paymentMethod"> Payment by cash at an address pointed
+                                    </p>
+                                    <p>
+                                        <input type="radio" value="4" name="paymentMethod"> Cash payment at the headquaters
+                                    </p>
+                                </div>
+                            </div>&ndash;&gt;
+                        </div>
+            -->
+
+        </div>
+        <div class="col-12 col-lg-4 m-0">
+            <form method="post" th:action="@{/cart}" th:object="${receiptDTO}">
+                <div class="product-content mb-3" id="contact-information">
+                    <h6 class="main-title text-center mt-1 pb-2 w-100">Contact Information</h6>
+                    <div class="alert alert-danger create-error" role="alert" style="display: none;">Email has exit,
+                        Please try again!
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input class="form-control" id="fullName" placeholder="Enter full name" required=""
+                               th:field="*{customerDTO.fullName}"
+                               type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input class="form-control" id="address" placeholder="Enter address" required=""
+                               th:field="*{customerDTO.address}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input class="form-control" id="phonenumber" placeholder="Enter phone number" required=""
+                               th:field="*{customerDTO.phoneNumber}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" id="email" placeholder="Enter email" required=""
+                               th:field="*{customerDTO.email}" type="text">
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a class="continue-shopping p-2 px-3" href="/"><span
+                                class="fa fa-chevron-left pr-2"></span><span class="d-lg-inline d-none">Shopping</span></a>
+                        <a class="continue-shopping p-2 px-3" href="#" id="button-next"><span
+                                class="d-none d-lg-inline">Next</span><span
+                                class="fa fa-chevron-right pl-2"></span></a>
+                    </div>
+                    <div class="alert alert-danger check-field" role="alert" style="display: none;">Please try enter all
+                        field!
+                    </div>
+                </div>
+                <div class="product-content mb-3 d-none" id="recipient-information">
+                    <h6 class="main-title text-center mt-1 pb-2 w-100">Recipient's Information</h6>
+                    <div class="alert alert-danger create-error" role="alert" style="display: none;">Email has exit,
+                        Please try again!
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input class="form-control" id="recipient-fullName" placeholder="Enter full name" required=""
+                               th:field="*{recipientDTO.fullName}"
+                               type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input class="form-control" id="recipient-address" placeholder="Enter address" required=""
+                               th:field="*{recipientDTO.address}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input class="form-control" id="recipient-phonenumber" placeholder="Enter phone number"
+                               required=""
+                               th:field="*{recipientDTO.phoneNumber}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Message to recipient</label>
+                        <input class="form-control" id="message-to-recipient" placeholder="Enter your message to recipient"
+                               required=""
+                               th:field="*{recipientDTO.messageToRecipient}" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Message to us</label>
+                        <input class="form-control" id="message-to-us" placeholder="Enter your message to us"
+                               required=""
+                               th:field="*{recipientDTO.messageToUs}" type="text">
+                    </div>
+                    <div class="p-2 d-flex justify-content-around">
+                        <div>
+                            <label>Delivery date: </label>
+                            <input class="custom-form-control d-inline-block" id="date-time-picker" name="deliveryDate" placeholder=""
+                                   th:field="*{deliveryDate}" type="date"
+                                   value=10/30/2019/>
+                        </div>
+                        <div>
+                            <label>Hours: </label>
+                            <input class="custom-form-control d-inline-block" id="appt-time" name="deliveryHour"
+                                   th:field="*{deliveryHour}" type="time" value="13:30:00"
+                            >
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a class="continue-shopping p-2 px-3" href="#" id="button-back"><span
+                                class="fa fa-chevron-left pr-2"></span><span class="d-none d-lg-inline">Back</span></a>
+                        <button class="button" type="submit">Buy now</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="custom-script">
+    <script src="/js/cart.js"></script>
+</th:block>
+</body>
+</html>

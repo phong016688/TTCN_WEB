@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en" xmlns:th="www.thymeLeaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+
+      layout:decorate="~{layout/admin-layout}">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/5.9.0/css/all.min.css">
+    <title>Dashboard - [Story's Flower]</title>
+    <!--    <link rel="stylesheet" href="/admin/main.css">-->
+</head>
+<body>
+<div layout:fragment="left-bar">
+    <th:block th:replace="fragments/admin-fr/left_bar">
+    </th:block>
+
+</div>
+<div layout:fragment="main-content">
+
+    <th:block th:replace="fragments/admin-fr/index">
+    </th:block>
+
+</div>
+</div>
+<th:block layout:fragment="custom-script">
+    <script src="/js/cart.js"></script>
+    <script src="/js/admin/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/admin/popper.min.js"></script>-->
+    <script src="/js/admin/bootstrap.min.js"></script>
+    <script src="/js/admin/main.js"></script>
+
+</th:block>
+</body>
+</html>

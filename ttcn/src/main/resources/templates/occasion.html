@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/default-layout}" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="www.thymeLeaf.org">
+<head>
+    <title>Story's Flower</title>
+    <link href="/css/product.css" rel="stylesheet">
+    <link href="/css/detail.css" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="main-content">
+    <div class="product-title">
+        <h1><span th:text="${occasion.nameOccasion}"></span><span> Flowers</span></h1>
+        <p>
+            <span th:text="${#lists.size(occasions)}"></span>
+            <span th:text="${#lists.size(occasions) <2 } ? 'Result' : 'Results'">Results</span>
+        </p>
+    </div>
+    <div class="row main-contain">
+        <div class="main-left col-12 col-lg-9 m-0">
+            <th:block th:replace="fragments/detail-fragments/list-occasion">
+            </th:block>
+        </div>
+        <div class="main-right col-12 col-lg-3 m-0">
+            <div class="popular-product">
+                <h5 class="main-title pb-2">Best rating products</h5>
+                <div th:if="${not #lists.isEmpty(bestRatingProducts)}">
+                    <div th:each="item : ${bestRatingProducts}">
+                        <th:block th:replace="fragments/detail-fragments/small-product">
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr my-5"/>
+
+            <div class="view-your-card" th:if="${not #lists.isEmpty(session.carts)}">
+                <h5 class="main-title pb-2">your cards</h5>
+                <div th:if="${not #lists.isEmpty(session.carts)}">
+                    <div th:each="item : ${session.carts}">
+                        <a class="mt-3 p-2 d-flex" th:href="@{/product/} +${item.productDTO.id}">
+                            <img alt="popular-product"
+                                 class="small-circle-image rounded-circle mr-3 align-items-center"
+                                 th:src="${item.productDTO.imageId!=null}? @{/api/image/} + ${item.productDTO.imageId} : @{/img/no-img/png}"/>
+                            <div class="d-inline-block align-items-center">
+                                <p class="name-product text-left font-weight-normal mb-1 text-break"
+                                   th:text="${item.productDTO.productName}">Colorful bouquet</p>
+                                <p class="price text-left mb-0"><span>Price: </span><span
+                                        th:text="${#numbers.formatDecimal(item.productDTO.price, 0, 'COMMA', 0, 'POINT')}">600,000</span><span>d</span></span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<th:block layout:fragment="custom-script">
+</th:block>
+</body>
+</html>

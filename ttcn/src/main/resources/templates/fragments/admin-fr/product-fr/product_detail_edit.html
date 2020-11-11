@@ -1,0 +1,70 @@
+<th:block th:fragment="product_detail" xmlns:th="www.thymeLeaf.org">
+    <div class="product-title">
+        <h1 id="product-title" th:text="${product.productName}">Colorful flower bouquet</h1>
+        <p>
+            <span th:utext="${product.topicName}"></span>
+            <span> | </span>
+            <span th:utext="${product.nameOccasion}"></span>
+        </p></div>
+    <div class="row main-contain">
+        <div class="main-left col-12 col-lg-8 m-0">
+            <div class="product-image-container row d-flex justify-content-start">
+                <div class=" col-12 col-lg-9 d-flex align-items-center mb-3">
+                    <div class="css">
+                        <img alt="main-image"
+                             class="main-image-detail " th:src="${product.imageId!=null}? @{/api/image/} + ${product.imageId} : @{/img/no-img/png}"/>
+                    </div>
+                </div>
+                <div class="all-product-image col-12 col-lg-2 d-flex flex-lg-column align-content-lg-center my-lg-auto justify-content-center">
+                    <div th:each="item : ${product.imageIds}" th:if="${not #lists.isEmpty(product.imageIds)}">
+                        <img alt="main-image"
+                             class="image-detail" th:id="'image'+${item}" th:src="${item!=null}?@{/api/image/}+${item}:@{/img/no-img.png}"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr mb-5 mt-4"/>
+
+            <div class="custom-nav-tab">
+                <ul class="nav nav-tabs d-flex justify-content-center justify-content-lg-start">
+                    <li class="nav-item">
+                        <a class="active custom-nav nav-active px-3 pt-3 pb-2 px-md-5" data-toggle="tab" href="#detail"
+                           id="item1">Detail</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="custom-nav nav-not-active px-3 pt-3 pb-2 px-md-5" data-toggle="tab" href="#meaning"
+                           id="item2">Meaning</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="detail">
+                        <h5 class=""><span>Descriptions of </span><span
+                                th:text="${product.productName}"></span></span></h5>
+                        <p th:text="${product.description}"></p>
+                    </div>
+                    <div class="tab-pane" id="meaning">
+                        <h5 class=""><span>Meaning of </span><span
+                                th:text="${product.productName}"></span></span></h5>
+                        <div class="mean-categorise" th:each="item : ${product.categories}"
+                             th:if="${not #lists.isEmpty(product.categories)}">
+                            <p th:if="${item.categoryMeaning != null}">
+                                <span class="category-name" th:text="${item.categoryName}"></span>
+                                <span>: </span>
+                                <span class="category-meaning" th:text="${item.categoryMeaning}"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr my-4"/>
+        </div>
+        <div class="main-right col-12 col-lg-4 m-0">
+            <div class="product-content">
+                <h5 class="main-title text-center mt-1 pb-2 w-100" th:text="${product.productName}">Colorful flower
+                    bouquet</h5>
+                <p class="product-des" th:text="${product.description}">
+                </p>
+                <button class="btn-primary" type="button">Edit</button>
+            </div>
+        </div>
+    </div>
+</th:block>

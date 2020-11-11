@@ -1,0 +1,73 @@
+<th:block xmlns:th="www.thymeLeaf.org" th:fragment="product_detail">
+    <div class="product-title">
+        <h1 th:text="${product.productName}" id="product-title">Colorful flower bouquet</h1>
+        <p>
+            <span th:utext="${product.topicName}"></span>
+            <span> | </span>
+            <span th:utext="${product.nameOccasion}"></span>
+        </p>
+    </div>
+    <!--value="selected='selected'-->
+    <div class="row main-contain">
+        <div class="main-left col-10 m-0 mx-auto">
+
+            <div class="product-image-container row d-flex justify-content-center">
+                <th:block th:replace="fragments/admin-fr/product-fr/upload-picture">
+                </th:block>
+            </div>
+            <hr class="hr mb-5 mt-4"/>
+
+            <div class="card text-left col-12">
+                <form th:action="@{/admin/product/edit/{id}(id=${product.Id})}" method="post" name="editForm"
+                      id="editForm">
+                    <div class="form-group">
+                        <label for="title">Name Of Product</label>
+                        <input type="text" class="form-control" id="title" name="productName" placeholder="Enter activity's name"
+                               th:value="${product.productName}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price" name="price" style="width: 200px;" placeholder="Enter activity's price"
+                               th:value="${product.price}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idTopic">Topic</label>
+                        <select class="form-control" id="idTopic" name="idTopic" style="width: 200px;" >
+                            <option th:if="${not #lists.isEmpty(listTopic)}"
+                                    th:each="item: ${listTopic}"
+                                    th:value="${item.idTopic}"
+                                    th:text = "${item.nameTopic}"
+                                    th:selected="${item.idTopic == product.idTopic}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idOccasion">Occasion</label>
+                        <select class="form-control" id="idOccasion" name="idOccasion" style="width: 200px;">
+                            <option th:if="${not #lists.isEmpty(occasions) }"
+                                    th:each="item: ${occasions}"
+                                    th:value="${item.occasionId}"
+                                    th:text = "${item.nameOccasion}"
+                                    th:selected="${item.occasionId == product.idOccasion}">
+                        </option>
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" name ="description" id="description" rows="3" th:text="${product.description}"
+                                  placeholder="Enter activity's description"></textarea>
+                    </div>
+
+
+                    <button id="submitBtn" type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>

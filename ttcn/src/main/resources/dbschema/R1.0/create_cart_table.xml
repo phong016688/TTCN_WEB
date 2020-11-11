@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_cart_table" author="ntynguyen">
+        <createTable tableName="cart" remarks="cart table">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="customer_id" type="bigint">
+                <constraints nullable="false" unique="false" foreignKeyName="fk_cart_customer"
+                             references="customer(id)"/>
+            </column>
+            <column name="recipient_id" type="bigint">
+                <constraints nullable="false" unique="false" foreignKeyName="fk_cart_recipient"
+                             references="recipient(id)"/>
+            </column>
+            <column name="buy_date" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="delivery_date" type="date" defaultValueComputed="CURRENT_DATE">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="delivery_hour" type="time" defaultValueComputed="CURRENT_TIME">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="status" type="int" defaultValue="0">
+                <constraints nullable="false"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

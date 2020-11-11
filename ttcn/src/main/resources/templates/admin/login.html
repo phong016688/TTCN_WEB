@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Main CSS-->
+    <link href="/css/admin/main.css" rel="stylesheet" type="text/css">
+    <!-- Font-icon css-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <title>Login - [Story's Flower]</title>
+</head>
+<body>
+<section class="material-half-bg">
+    <div class="cover"></div>
+</section>
+<section class="login-content">
+    <div class="logo">
+        <h1>Story's Flower</h1>
+    </div>
+    <label style="color: red" th:text="${msg}"></label>
+    <div class="login-box">
+        <form class="login-form" method="POST" th:action="@{/admin/login}">
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+            <div class="form-group">
+                <label class="control-label">EMAIL</label>
+                <input autofocus class="form-control" name="email" placeholder="Email" type="text">
+            </div>
+            <div class="form-group">
+                <label class="control-label">PASSWORD</label>
+                <input class="form-control" name="passWord" placeholder="Password" type="password">
+            </div>
+            <div class="form-group">
+                <div class="utility">
+                    <div class="animated-checkbox">
+                        <label>
+                            <input type="checkbox"><span class="label-text">Stay Signed in</span>
+                        </label>
+                    </div>
+                    <p class="semibold-text mb-2"><a data-toggle="flip" href="#">Forgot Password ?</a></p>
+                </div>
+            </div>
+            <div class="form-group btn-container">
+                <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
+            </div>
+        </form>
+        <form action="index.html" class="forget-form">
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password ?</h3>
+            <div class="form-group">
+                <label class="control-label">EMAIL</label>
+                <input class="form-control" placeholder="Email" type="text">
+            </div>
+            <div class="form-group btn-container">
+                <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button>
+            </div>
+            <div class="form-group mt-3">
+                <p class="semibold-text mb-0"><a data-toggle="flip" href="#"><i class="fa fa-angle-left fa-fw"></i> Back
+                    to Login</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- Essential javascripts for application to work-->
+<script src="/js/admin/jquery-3.3.1.min.js"></script>
+<script src="/js/admin/popper.min.js"></script>
+<script src="/js/admin/bootstrap.min.js"></script>
+<script src="/js/admin/main.js"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="/js/admin/plugins/pace.min.js"></script>
+<script type="text/javascript">
+    // Login Page Flipbox control
+    $('.login-content [data-toggle="flip"]').click(function () {
+        $('.login-box').toggleClass('flipped');
+        return false;
+    });
+</script>
+</body>
+</html>

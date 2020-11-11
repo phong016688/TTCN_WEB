@@ -1,0 +1,57 @@
+<th:block xmlns:th="www.thymeLeaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" th:fragment="product_detail">
+    <div class="row main-contain">
+        <div class="main-left col-12 col-lg-8 m-0">
+          <!--  <div class="product-image-container row d-flex justify-content-start">
+                <div class=" col-12 col-lg-9 d-flex align-items-center mb-3">
+                    <div class="css">
+                        <img th:src="${@{/img/no-img/png}"
+                             class="main-image-detail " alt="main-image"/>
+                    </div>
+                </div>
+                <div class="all-product-image col-12 col-lg-2 d-flex flex-lg-column align-content-lg-center my-lg-auto justify-content-center">
+                    <div th:if="${not #lists.isEmpty(product.imageIds)}" th:each="item : ${product.imageIds}">
+                        <img th:src="${item!=null}?@{/api/image/}+${item}:@{/img/noimg.png}"
+                             class="image-detail" alt="main-image" th:id="'image'+${item}"/>
+                    </div>
+                </div>
+            </div>-->
+            <h3>More product information[Flower]</h3>
+            <hr class="hr mb-5 mt-4"/>
+
+            <form action="/admin/product/add/1" method="post" name="editForm"
+                  id="editForm">
+                <div class="form-group">
+                    <label for="title">Name Of Product</label>
+                    <input type="text"
+                           class="form-control" id="title" name="productName"
+                           placeholder="Enter activity's name">
+                </div>
+                <div class="form-group">
+                    <label for="idOccasion">Occasion</label>
+                    <select class="form-control" id="idOccasion" name="idOccasion" style="width: 200px;" >
+                        <option value="0">--</option>
+                        <option th:if="${not #lists.isEmpty(listOccision)}"
+                                th:each="item: ${listOccision}"
+                                th:value="${item.occasionId}"
+                                th:text = "${item.nameOccasion}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" id="price" name="price" style="width: 200px;"
+                           onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter activity's price">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name ="description" id="description" rows="3"
+                              placeholder="Enter activity's description"></textarea>
+                </div>
+
+
+                <button id="submitBtn" type="submit" class="btn btn-success">Save</button>
+            </form>
+            <hr class="hr my-4"/>
+        </div>
+    </div>
+</th:block>

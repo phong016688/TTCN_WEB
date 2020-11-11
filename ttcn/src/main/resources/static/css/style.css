@@ -1,0 +1,279 @@
+body {
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+}
+
+.header-area {
+    border-bottom: 0.1px solid #eeeeee;
+    z-index: 1000;
+    background-color: white;
+}
+
+.navbar.navbar-expand .navbar-nav .nav-item .nav-link {
+    font-size: 15px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link, .menu-link {
+    font-size: 17px;
+    line-height: 24px;
+    font-style: normal;
+    text-transform: none;
+    font-weight: normal;
+    color: #211f1f;
+    text-decoration: none;
+}
+
+.navbar.navbar-expand .navbar-nav .nav-item:hover {
+    border-bottom: #544e48 1.5px solid;
+}
+
+.navbar.navbar-expand .navbar-nav .nav-item.active {
+    border-bottom: #211f1f 1.5px solid;
+}
+
+.navbar.navbar-expand .navbar-nav .nav-item .nav-link {
+    boder-bottom: 2px transparent;
+}
+
+.navbar.navbar-expand .navbar-nav .nav-item .nav-link:hover {
+    color: #544e48;
+}
+
+.logo-image {
+    margin-right: 20px;
+}
+
+.nav-icon {
+    text-align: center;
+    margin-left: 15px;
+    color: #211f1f;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.nav-icon:hover {
+    color: #544e48;
+    text-decoration: none;
+}
+
+.page-footer {
+    background-color: #FEFBFA !important;
+    margin-top: auto;
+    border-top: 0.1px solid #eeeeee;
+}
+
+.footer-quote {
+    margin-bottom: 40px;
+}
+
+.footer-quote .quote {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 300;
+    font-style: normal;
+    margin: auto;
+    text-align: center;
+}
+
+.contact {
+    font-size: 13px;
+}
+
+.user-thumbnail {
+    border: 1px #eeeeee solid;
+}
+
+#user_dropdown {
+    color: black;
+    text-decoration: none;
+}
+
+<!--
+list image css-- >
+.price {
+    margin-top: 5px;
+    color: grey;
+    font-weight: bold;
+}
+
+.image {
+    width: 285px;
+    height: 285px;
+    object-fit: cover;
+}
+
+
+@media only screen and(max-width: 600px) {
+    .image {
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+    }
+}
+
+
+.image-link:hover {
+    outline: 1px solid #eee;
+    box-shadow: 0 2px 4.7px .4px rgba(0, 0, 0, .1);
+}
+
+
+.image-link:hover .view-detail-button {
+    visibility: visible;
+}
+
+.image-link > a {
+    text-decoration: none;
+}
+
+.view-detail-button {
+    width: 100%;
+    background: #007CAD;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    height: 45px;
+    visibility: hidden;
+}
+
+.view-detail-button:hover {
+    background: #006188;
+}
+
+.name-product {
+    text-align: center;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #211f1f;
+}
+
+.main-p {
+    text-align: center;
+    color: #544e48;
+    font-weight: normal;
+}
+
+.hr {
+    border-top: 1px solid #eeeeee;
+    margin: 15px 0px;
+}
+
+.small-circle-image {
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #FEFBFA;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav .closebtn:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    color: #818181;
+    font-size: 36px;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.create-account-link {
+    color: #007CAD;
+    font-weight: normal;
+    font-size: 14px;
+    background: none;
+    border: none;
+    margin-left: 0px;
+}
+
+.create-account-link:hover {
+    color: #006188;
+}
+
+.main-group {
+    margin-bottom: 15px;
+}
+
+.main_label {
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.create-error, .check-field {
+    display: none;
+}
+
+#button-nav {
+    border: none;
+    background: none;
+}
+
+#mySidenav2 {
+    top: 0px;
+    left: 0px;
+}
+
+.fa.fa-star {
+    font-weight: unset;
+    color: #E5E1E1;
+}
+
+.fa.fa-star.yellow {
+    color: yellow;
+}
+
+#main-message {
+    background-color: #baf5be;
+    width: 0;
+    height: 55px;
+    bottom: 40px;
+    overflow-x: hidden;
+    left: 40px;
+    z-index: 1000;
+
+}
+
+#main-message > p {
+    font-size: 17px;
+    font-weight: normal;
+    color: #66ba6c;
+    text-align: center;
+}
+
+
+a:hover {
+    text-decoration: none;
+    color: #211f1f;
+}
+
+a {
+    text-decoration: none;
+    color: #211f1f;
+}
+
+.search {
+    border: none;
+    background: none;
+}
+
+
+

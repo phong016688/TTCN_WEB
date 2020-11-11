@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/admin-layout}" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="www.thymeLeaf.org">
+<head>
+    <title>Customer - [Story's Flower]</title>
+    <!--    <link rel="stylesheet" href="/admin/main.css">-->
+</head>
+<body>
+<div layout:fragment="left-bar">
+    <th:block th:replace="fragments/admin-fr/left_bar">
+    </th:block>
+
+</div>
+<div layout:fragment="main-content">
+
+    <th:block th:replace="fragments/admin-fr/cart_fr/cart">
+    </th:block>
+
+</div>
+</div>
+<th:block layout:fragment="custom-script">
+    <script src="/js/cart.js"></script>
+    <script src="/js/admin/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/admin/popper.min.js"></script>-->
+    <script src="/js/admin/bootstrap.min.js"></script>
+    <script src="/js/admin/main.js"></script>
+
+</th:block>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<th:block th:fragment="small-product" xmlns:th="www.thymeLeaf.org">
+    <div>
+        <a class="mt-3 p-2 d-flex" th:href="@{/product/} +${item.id}">
+            <img alt="popular-product"
+                 class="small-circle-image rounded-circle mr-3 align-items-center"
+                 th:src="${item.imageId!=null}? @{/api/image/} + ${item.imageId} : @{/img/no-img/png}"/>
+            <div class="d-inline-block align-items-center">
+                <p class="name-product text-left font-weight-normal mb-1 text-break" th:text="${item.productName}">
+                    Colorful bouquet</p>
+                <p class="price text-left mb-0"><span>Price: </span><span
+                        th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}">600,000</span><span>d</span></span>
+                </p>
+            </div>
+        </a>
+    </div>
+</th:block>

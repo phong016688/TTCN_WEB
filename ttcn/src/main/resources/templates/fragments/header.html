@@ -1,0 +1,178 @@
+<header class="sticky-top header-area" th:fragment="header" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+        xmlns:th="www.thymeLeaf.org">
+
+    <div>
+        <nav class="navbar navbar-expand d-flex justify-content-around align-items-center">
+            <!-- Links -->
+            <div>
+                <button class="fa fa-bars d-lg-none d-block" id="button-nav" onclick="openNav()"></button>
+            </div>
+            <a href="/"><img class="logo logo-image" src="/img/logo.png"></a>
+            <ul class="navbar-nav d-none d-lg-block">
+                <div class="row">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/flower">FLOWERS</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" th:href="@{/plant}">PLANTS</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/giftandsweet">GIFTS & SWEETS</a>
+                    </li>
+                </div>
+            </ul>
+            <div class="row d-flex align-items-center">
+                <button class="nav-icon search" data-target="#search" data-toggle="collapse" th:href="@{/search}"
+                        type="button">
+                    <i class="fa fa-search"></i>
+                    <p class="d-none d-md-block mb-0">Search</p>
+                </button>
+                <a class="nav-icon d-lg-block d-none" onclick="openLogin()" sec:authorize="!isAuthenticated()">
+                    <i class="fa fa-user-circle"></i>
+                    <p class="d-none d-lg-block mb-0">Account</p>
+                </a>
+                <a class="nav-icon" th:href="@{/cart}">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p class="d-none d-md-block mb-0">Card</p>
+                </a>
+                <div class="nav-link dropdown d-none d-lg-block" sec:authorize="isAuthenticated()">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                       id="user_dropdown">
+                        <img class="rounded-circle user-thumbnail" height="35" src="/img/default_profile_picture.png"
+                             width="35">
+                    </a>
+                    <div aria-labelledby="user_dropdown" class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <form id="searchForm" method="get" th:action="@{/search}">
+            <div class="collapse row mb-2" id="search">
+                <div class="col-1 col-md-2 col-lg-3"></div>
+                <input class="form-control col-10 col-md-8 col-lg-6" id="searchInfor" name="searchKey" placeholder="Search for activities"
+                       type="text">
+            </div>
+        </form>
+        <div class="sidenav col-lg-4 col-md-6 col-12 p-0" id="mySidenav">
+            <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a>
+            <div class="col-8 col-md-10 col-lg-10 mx-auto mt-5">
+                <form id="login_form" method="POST" th:action="@{/login}">
+                    <h4 class="main_label">
+                        Sign in
+                    </h4>
+
+                    <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                        Username or password is incorrect.
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="email"
+                               placeholder="Enter email" required type="text">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" name="password"
+                               placeholder="Enter password" required type="password">
+                    </div>
+                    <button class="view-detail-button visible mt-5" type="submit">LOGIN</button>
+                </form>
+                <p class="main-p text-left my-3">Do you have account?</p>
+                <button class="create-account-link ml-0 px-0" onclick="openCreateAccount()">Create account</button>
+            </div>
+        </div>
+
+        <div class="sidenav col-lg-4 col-md-6 col-12 p-0" id="mySidenav1">
+            <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a>
+            <div class="col-8 col-md-10 col-lg-10 mx-auto mt-5">
+                <form id="create-account-form">
+                    <h4 class="main_label">
+                        Sign up
+                    </h4>
+                    <div class="alert alert-danger create-error" role="alert">Email has exit, Please try again!</div>
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input class="form-control" id="firstname"
+                               placeholder="Enter first name" required type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input class="form-control" id="lastname"
+                               placeholder="Last name" required type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" id="email"
+                               placeholder="Enter email" required type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" id="password"
+                               placeholder="Enter password" required type="password">
+                    </div>
+                    <div class="alert alert-danger check-field" role="alert">Please try enter all field!</div>
+                    <button class="view-detail-button visible mt-5" id="create-account" type="button">CREATE
+                        ACCOUNT
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="sidenav col-lg-4 col-md-6 col-12 p-0" id="mySidenav2">
+            <div class="ml-5 mt-5">
+                <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a>
+                <a class="menu-link" onclick="openLogin()" sec:authorize="!isAuthenticated()">
+                    <p class="text-left"><span class="fa fa-user-circle mr-2"></span>SIGN IN</p>
+                </a>
+                <div sec:authorize="isAuthenticated()">
+                    <a href="/myprofile">
+                        <p class=""><img class="rounded-circle user-thumbnail mr-2" height="35" src="/img/default_profile_picture.png"
+                                         width="35"><span
+                                class="menu-link">Story's flower</span></p>
+                    </a>
+                </div>
+            </div>
+            <hr class="hr mx-3"/>
+            <div class="ml-5">
+                <div class="navbar px-0">
+                    <ul class="navbar-nav">
+                        <div class="">
+                            <li class="nav-item py-2">
+                                <a class="menu-link" th:href="@{/}"><span
+                                        class="fa fa-home mr-2"></span><span>Home</span></a>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="nav-item py-2">
+                                <a class="menu-link"><span class="fa fa-spa mr-2"></span><span>Flowers</span></a>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="nav-item py-2">
+                                <a class="menu-link" th:href="@{/plant}"><span class="fa fa-seedling mr-2"></span><span>Plants</span></a>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="nav-item py-2">
+                                <a class="menu-link" th:href="@{/giftandsweet}"><span
+                                        class="fa fa-gift mr-2"></span><span>Gifts And Sweets</span></a>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="nav-item py-2" sec:authorize="isAuthenticated()">
+                                <a class="menu-link" th:href="@{/logout}"><span
+                                        class="fa fa-sign-out-alt mr-2"></span><span> Logout</span></a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>

@@ -1,0 +1,31 @@
+<div class="tile" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h3 class="tile-title" th:text="${'Thống kê tháng:'+ revenueDTO.date}"></h3>
+    <strong th:text="${'Tổng tiền: '+ #numbers.formatDecimal(revenueDTO.totalMoney , 0, 'COMMA', 0, 'POINT')+' đ'}"></strong>
+    <div th:if="${revenueDTO.totalMoney} != 0.0 ">
+        <form method="POST" th:action="@{/admin/revenue/download}">
+            <input type="hidden" name="bdaymonth" th:value=${revenueDTO.date}>
+            <input class="btn btn-success" type="submit" value="Xuất Excel">
+        </form>
+
+    </div>
+
+    <table class="table table-hover" style="margin-top: 15px;">
+        <thead>
+        <tr>
+            <th width="10%">STT</th>
+            <th width="40%">Tên Sản Phẩm</th>
+            <th width="20%">Số lượng</th>
+            <th width="20%">Tổng tiền</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${revenueDTO.listCart }">
+
+            <td th:text="${ item.id }">STT</td>
+            <td th:text="${ item.name }">Tên Sản Phẩm</td>
+            <td th:text="${ item.quatity }">Tên Sản Phẩm</td>
+            <td th:text="${#numbers.formatDecimal(item.quatity*item.price , 0, 'COMMA', 0, 'POINT')+' đ'}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
