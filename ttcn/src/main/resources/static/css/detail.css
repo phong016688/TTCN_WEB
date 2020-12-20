@@ -61,7 +61,7 @@
 
 .product-des, .category-meaning, .category-name {
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
-    color: #544e48;
+    color: #d42e9c;
 }
 
 .main-contain {
@@ -98,12 +98,12 @@
 
 .search-container > button::placeholder {
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
-    color: #544e48
+    color: #32f546
 }
 
 
 .search-container:hover {
-    border: 0.5px solid #211f1f;
+    border: 0.5px solid #078348;
 }
 
 #quantity {
@@ -117,7 +117,7 @@
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
     font-weight: bold;
     color: white;
-    background-color: #007CAD;
+    background-color: #eeb424;
     border: none;
     height: 40px;
     padding: 0px 10px;
@@ -125,7 +125,7 @@
 }
 
 .button:hover {
-    background-color: #006188;
+    background-color: #d4f13c;
 }
 
 .btn-success {
@@ -139,7 +139,7 @@
 .product-content {
     padding: 10px;
     border: 1px solid #eeeeee;
-    border-top: 2px solid #007CAD;
+    border-top: 2px solid #54b9e2;
 }
 
 #favourite-button {
@@ -185,12 +185,12 @@
 
 .custom-nav-tab .nav.nav-tabs .nav-item > a {
     text-decoration: none;
-    color: #211f1f;
+    color: #f51414;
 }
 
 .custom-nav-tab .nav.nav-tabs > li > a:hover {
     text-decoration: none;
-    color: #544e48;
+    color: #f1820e;
 }
 
 .nav-active {
@@ -222,7 +222,7 @@
 }
 
 .user-name {
-    color: #211f1f;
+    color: #dd8383;
 }
 
 .date-review {
