@@ -4,9 +4,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-/**
- * @author ntynguyen
- */
+
 public class ReviewDTO {
     private Long productId;
     private Long userId;

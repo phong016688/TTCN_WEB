@@ -17,9 +17,7 @@ import static storysflower.com.storysflower.model.tables.Tables.*;
 import static storysflower.com.storysflower.model.tables.tables.Product.PRODUCT;
 import static storysflower.com.storysflower.model.tables.tables.Topic.TOPIC;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class ProductRepository {
     @Autowired

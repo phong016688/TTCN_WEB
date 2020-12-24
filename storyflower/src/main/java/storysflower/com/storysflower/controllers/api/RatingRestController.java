@@ -10,9 +10,7 @@ import storysflower.com.storysflower.exceptions.ApiException;
 import storysflower.com.storysflower.services.RattingService;
 import storysflower.com.storysflower.services.UserService;
 
-/**
- * @author ntynguyen
- */
+
 @RestController
 @RequestMapping("/api/rating")
 public class RatingRestController {

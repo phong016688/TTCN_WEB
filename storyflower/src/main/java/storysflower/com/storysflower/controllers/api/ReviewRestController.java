@@ -12,9 +12,7 @@ import storysflower.com.storysflower.services.UserService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 @RestController
 @RequestMapping("api/review")
 public class ReviewRestController {

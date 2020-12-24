@@ -1,10 +1,6 @@
 package storysflower.com.storysflower.dto;
 
-/**
- * Activity Service interface.
- *
- * @author ntynguyen
- */
+
 
 public class ImageDTO {
     private long id;

@@ -7,9 +7,7 @@ import storysflower.com.storysflower.dto.ReceiptDTO;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 public interface CartService {
     boolean addCard(List<CartDTO> cartDTOList, Long productId, String quantity);
 

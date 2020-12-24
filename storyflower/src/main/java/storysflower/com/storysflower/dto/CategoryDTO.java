@@ -1,8 +1,6 @@
 package storysflower.com.storysflower.dto;
 
-/**
- * @author ntynguyen
- */
+
 public class CategoryDTO {
     private String categoryName;
     private String categoryMeaning;

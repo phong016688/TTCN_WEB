@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import storysflower.com.storysflower.services.DealService;
 import storysflower.com.storysflower.services.OccasionService;
 
-/**
- * @author hnguyen
- */
+
 
 @Controller
 public class HomeAdminController {

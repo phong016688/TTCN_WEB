@@ -2,9 +2,6 @@ package storysflower.com.storysflower.dto;
 
 import java.util.Objects;
 
-/**
- * @author ntynguyen
- */
 public class CartDTO {
     private ProductDTO productDTO;
     private int quantity;

@@ -9,9 +9,7 @@ import java.util.List;
 
 import static storysflower.com.storysflower.model.tables.tables.Occasion.OCCASION;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class OccasionRepository {
     @Autowired

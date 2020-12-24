@@ -9,9 +9,6 @@ import storysflower.com.storysflower.services.OccasionService;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
 
 @Component
 public class OccasionServiceImpl implements OccasionService {

@@ -12,9 +12,7 @@ import static storysflower.com.storysflower.model.tables.Tables.DEAL_PRODUCT;
 import static storysflower.com.storysflower.model.tables.tables.ImageProduct.IMAGE_PRODUCT;
 import static storysflower.com.storysflower.model.tables.tables.Product.PRODUCT;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class DealRepository {
     @Autowired

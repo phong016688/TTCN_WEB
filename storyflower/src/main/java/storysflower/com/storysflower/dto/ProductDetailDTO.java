@@ -3,9 +3,7 @@ package storysflower.com.storysflower.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 public class ProductDetailDTO {
     private Long id;
     private Long imageId;

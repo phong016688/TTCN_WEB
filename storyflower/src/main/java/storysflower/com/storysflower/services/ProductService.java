@@ -6,9 +6,7 @@ import storysflower.com.storysflower.dto.ProductDetailDTO;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 public interface ProductService {
     public ProductDetailDTO getProductDetailDTOById(Long id);
 

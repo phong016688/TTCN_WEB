@@ -14,11 +14,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import storysflower.com.storysflower.services.impls.UserDetailServiceImpl;
 
 
-/**
- * Security config.
- *
- * @author ntynguyen
- */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

@@ -14,9 +14,7 @@ import java.util.List;
 import static storysflower.com.storysflower.model.tables.Tables.USER_ROLE;
 import static storysflower.com.storysflower.model.tables.tables.User.USER;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class UserRepository {
     @Autowired

@@ -9,9 +9,7 @@ import java.util.List;
 import static storysflower.com.storysflower.model.tables.tables.Product.PRODUCT;
 import static storysflower.com.storysflower.model.tables.tables.Rating.RATING;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class RatingRepository {
     @Autowired

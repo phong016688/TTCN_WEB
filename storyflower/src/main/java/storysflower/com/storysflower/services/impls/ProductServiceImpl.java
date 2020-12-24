@@ -11,9 +11,7 @@ import storysflower.com.storysflower.services.ProductService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class ProductServiceImpl implements ProductService {
     @Autowired

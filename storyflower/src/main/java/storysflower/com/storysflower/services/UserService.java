@@ -6,9 +6,7 @@ import storysflower.com.storysflower.dto.UserProfileDTO;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 public interface UserService {
     public CustomUserDetail getUser();
 

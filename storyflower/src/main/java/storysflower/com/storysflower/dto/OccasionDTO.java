@@ -1,10 +1,6 @@
 package storysflower.com.storysflower.dto;
 
-/**
- * Activity Service interface.
- *
- * @author ntynguyen
- */
+
 
 public class OccasionDTO {
     private Long occasionId;

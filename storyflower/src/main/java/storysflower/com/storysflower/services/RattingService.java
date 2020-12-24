@@ -4,9 +4,7 @@ import storysflower.com.storysflower.dto.ProductDTO;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 public interface RattingService {
     int getRate(Long productId);
 

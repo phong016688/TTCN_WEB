@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import storysflower.com.storysflower.services.OccasionService;
 import storysflower.com.storysflower.services.ProductService;
 
-/**
- * @author ntynguyen
- */
+
 @Controller
 @RequestMapping("/occasion")
 public class ProductController {

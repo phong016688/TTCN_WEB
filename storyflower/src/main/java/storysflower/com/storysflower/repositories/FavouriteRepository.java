@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import static storysflower.com.storysflower.model.tables.tables.Favourite.FAVOURITE;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class FavouriteRepository {
     @Autowired

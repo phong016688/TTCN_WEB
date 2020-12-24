@@ -7,9 +7,7 @@ import storysflower.com.storysflower.services.CategoryService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class CategoryServiceImpl implements CategoryService {
 

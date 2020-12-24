@@ -18,9 +18,7 @@ import java.util.concurrent.TimeUnit;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
-/**
- * @author ntynguyen
- */
+
 @RestController
 @RequestMapping("api/image")
 public class ImageRestController extends BaseRestController {

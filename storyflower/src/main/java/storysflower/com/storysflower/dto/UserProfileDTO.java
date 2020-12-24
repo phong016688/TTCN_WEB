@@ -1,8 +1,6 @@
 package storysflower.com.storysflower.dto;
 
-/**
- * @author ntynguyen
- */
+
 public class UserProfileDTO {
     private Long id;
     private String firstname;

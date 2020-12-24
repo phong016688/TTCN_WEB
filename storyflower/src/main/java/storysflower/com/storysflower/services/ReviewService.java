@@ -4,9 +4,7 @@ import storysflower.com.storysflower.dto.ReviewDTO;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 public interface ReviewService {
     List<ReviewDTO> getAllReviewsByProductId(Long id);
 

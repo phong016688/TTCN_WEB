@@ -2,9 +2,7 @@ package storysflower.com.storysflower.dto;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 
 public class CartShoppingDTO {
     private List<CartDTO> cartDTOS;

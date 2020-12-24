@@ -9,9 +9,7 @@ import storysflower.com.storysflower.model.tables.tables.records.ImageRecord;
 import static storysflower.com.storysflower.model.tables.Tables.IMAGE_PRODUCT;
 import static storysflower.com.storysflower.model.tables.tables.Image.IMAGE;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class ImageRepository {
     @Autowired

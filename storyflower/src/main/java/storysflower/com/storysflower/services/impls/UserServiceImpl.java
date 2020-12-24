@@ -14,10 +14,6 @@ import storysflower.com.storysflower.services.UserService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
-
 @Component
 public class UserServiceImpl implements UserService {
     @Autowired

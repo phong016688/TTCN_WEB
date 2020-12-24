@@ -8,9 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
-/**
- * @author ntynguyen
- */
+
 
 @Configuration
 @EnableWebMvc

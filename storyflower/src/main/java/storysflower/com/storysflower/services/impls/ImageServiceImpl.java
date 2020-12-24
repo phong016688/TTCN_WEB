@@ -6,9 +6,6 @@ import storysflower.com.storysflower.dto.ImageDTO;
 import storysflower.com.storysflower.repositories.ImageRepository;
 import storysflower.com.storysflower.services.ImageService;
 
-/**
- * @author ntynguyen
- */
 
 @Component
 public class ImageServiceImpl implements ImageService {

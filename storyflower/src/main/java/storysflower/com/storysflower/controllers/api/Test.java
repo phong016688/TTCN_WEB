@@ -10,9 +10,7 @@ import storysflower.com.storysflower.dto.ProductDTO;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 @Controller
 @RequestMapping("api/test")
 public class Test {

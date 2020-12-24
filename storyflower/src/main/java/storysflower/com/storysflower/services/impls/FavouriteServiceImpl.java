@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 import storysflower.com.storysflower.repositories.FavouriteRepository;
 import storysflower.com.storysflower.services.FavouriteService;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class FavouriteServiceImpl implements FavouriteService {
     @Autowired

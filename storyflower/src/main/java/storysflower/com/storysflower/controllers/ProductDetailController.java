@@ -11,9 +11,7 @@ import storysflower.com.storysflower.services.CategoryService;
 import storysflower.com.storysflower.services.ProductService;
 import storysflower.com.storysflower.services.ReviewService;
 
-/**
- * @author ntynguyen
- */
+
 @Controller
 @RequestMapping("/product")
 public class ProductDetailController {

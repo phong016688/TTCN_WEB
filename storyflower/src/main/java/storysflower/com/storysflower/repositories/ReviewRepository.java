@@ -11,9 +11,7 @@ import java.util.List;
 import static storysflower.com.storysflower.model.tables.tables.Review.REVIEW;
 import static storysflower.com.storysflower.model.tables.tables.User.USER;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class ReviewRepository {
     @Autowired

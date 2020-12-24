@@ -5,9 +5,7 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
-/**
- * @author ntynguyen
- */
+
 public class CustomUserDetail extends User {
     private Long id;
     private String firstName;

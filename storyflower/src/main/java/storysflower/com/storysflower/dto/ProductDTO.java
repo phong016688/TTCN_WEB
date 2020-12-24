@@ -1,8 +1,5 @@
 package storysflower.com.storysflower.dto;
 
-/**
- * @author ntynguyen
- */
 public class ProductDTO {
     private Long id;
     private Long imageId;

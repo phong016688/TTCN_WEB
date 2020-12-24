@@ -8,9 +8,7 @@ import storysflower.com.storysflower.services.ReviewService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class ReviewServiceImpl implements ReviewService {
     @Autowired

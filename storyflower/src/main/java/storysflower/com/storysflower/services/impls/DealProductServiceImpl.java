@@ -8,9 +8,6 @@ import storysflower.com.storysflower.services.DealService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
 @Component
 public class DealProductServiceImpl implements DealService {
     @Autowired

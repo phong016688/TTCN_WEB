@@ -10,9 +10,7 @@ import storysflower.com.storysflower.config.security.CustomUserDetail;
 import storysflower.com.storysflower.model.tables.tables.records.UserRecord;
 import storysflower.com.storysflower.repositories.UserRepository;
 
-/**
- * @author ntynguyen
- */
+
 @Component(value = "userDetailService")
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired

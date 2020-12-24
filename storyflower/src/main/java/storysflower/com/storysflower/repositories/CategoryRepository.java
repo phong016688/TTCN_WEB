@@ -8,9 +8,7 @@ import java.util.List;
 
 import static storysflower.com.storysflower.model.tables.tables.Category.CATEGORY;
 
-/**
- * @author ntynguyen
- */
+
 @Repository
 public class CategoryRepository {
     @Autowired

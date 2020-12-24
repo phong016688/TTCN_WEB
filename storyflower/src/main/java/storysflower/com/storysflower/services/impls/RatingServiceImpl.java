@@ -8,9 +8,7 @@ import storysflower.com.storysflower.services.RattingService;
 
 import java.util.List;
 
-/**
- * @author ntynguyen
- */
+
 @Component
 public class RatingServiceImpl implements RattingService {
     @Autowired
