@@ -19,8 +19,8 @@ target/
 *.iml
 *.ipr
 ### Ignore file properties ###
-application.properties
-liquibase.properties
+#application.properties
+#liquibase.properties
 
 ### NetBeans ###
 /nbproject/private/
