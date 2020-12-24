@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29c3663f-d1d0-4016-8a41-8cbdb76d847b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1m5SgHIy148yWbYLZVIaSoDWAmT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StorysflowerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="StorysFlower" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="storysflower.com.storysflower.StorysflowerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29c3663f-d1d0-4016-8a41-8cbdb76d847b" name="Default Changelist" comment="" />
+      <created>1608782070637</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608782070637</updated>
+      <workItem from="1608782071753" duration="1551000" />
+      <workItem from="1608783645222" duration="111000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="445" y="194" width="1092" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608783745810">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="445" y="194" width="1092" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1608783745810" />
+    <state x="720" y="353" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608783745248">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="720" y="353" key="#com.intellij.ide.util.TreeClassChooserDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1608783745248" />
+    <state width="1815" height="364" key="GridCell.Tab.0.bottom" timestamp="1608783638828">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638828" />
+    <state width="1815" height="364" key="GridCell.Tab.0.center" timestamp="1608783638827">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638827" />
+    <state width="1815" height="364" key="GridCell.Tab.0.left" timestamp="1608783638827">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638827" />
+    <state width="1815" height="364" key="GridCell.Tab.0.right" timestamp="1608783638827">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638827" />
+    <state width="1815" height="364" key="GridCell.Tab.1.bottom" timestamp="1608783638828">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638828" />
+    <state width="1815" height="364" key="GridCell.Tab.1.center" timestamp="1608783638828">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638828" />
+    <state width="1815" height="364" key="GridCell.Tab.1.left" timestamp="1608783638828">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638828" />
+    <state width="1815" height="364" key="GridCell.Tab.1.right" timestamp="1608783638828">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1608783638828" />
+  </component>
+</project>
