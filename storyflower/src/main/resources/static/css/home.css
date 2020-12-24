@@ -19,12 +19,12 @@
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
     text-align: center;
     font-weight: bold;
-    color: #aee5aa;
+    color: #007CAD;
     font-size: 17px;
 }
 
 .occasion-image:hover > p {
-    text-decoration: #cc14ec;
+    text-decoration: #007CAD;
 }
 
 @media only screen and (max-width: 750px) {
@@ -62,12 +62,12 @@
     font-style: italic;
     margin: 20px 0px 20px;
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
-    color: #704949;
+    color: #211f1f;
 }
 
 .image-link:hover {
-    outline: 1px solid #96cfb5;
-    box-shadow: 0 2px 4.7px .4px rgb(151, 243, 225);
+    outline: 1px solid #eee;
+    box-shadow: 0 2px 4.7px .4px rgba(0, 0, 0, .1);
 }
 
 .image-link:hover .view-detail-button {

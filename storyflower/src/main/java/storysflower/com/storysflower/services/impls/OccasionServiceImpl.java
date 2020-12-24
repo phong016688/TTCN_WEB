@@ -15,11 +15,8 @@ import java.util.List;
 
 @Component
 public class OccasionServiceImpl implements OccasionService {
-    final OccasionRepository occasionRepository;
-
-    public OccasionServiceImpl(OccasionRepository occasionRepository) {
-        this.occasionRepository = occasionRepository;
-    }
+    @Autowired
+    OccasionRepository occasionRepository;
 
     @Override
     public List<OccasionDTO> findAllOccasion() {

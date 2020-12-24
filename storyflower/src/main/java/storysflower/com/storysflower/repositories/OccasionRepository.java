@@ -1,6 +1,7 @@
 package storysflower.com.storysflower.repositories;
 
 import org.jooq.DSLContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import storysflower.com.storysflower.dto.OccasionDTO;
 
@@ -13,11 +14,8 @@ import static storysflower.com.storysflower.model.tables.tables.Occasion.OCCASIO
  */
 @Repository
 public class OccasionRepository {
-    private final DSLContext dslContext;
-
-    public OccasionRepository(DSLContext dslContext) {
-        this.dslContext = dslContext;
-    }
+    @Autowired
+    private DSLContext dslContext;
 
     public List<OccasionDTO> findAllOccasion() {
         return dslContext.selectFrom(OCCASION)

@@ -16,16 +16,11 @@ import java.util.List;
  */
 @Component
 public class ProductServiceImpl implements ProductService {
-    final
+    @Autowired
     ProductRepository productRepository;
 
-    final
+    @Autowired
     ImageRepository imageRepository;
-
-    public ProductServiceImpl(ProductRepository productRepository, ImageRepository imageRepository) {
-        this.productRepository = productRepository;
-        this.imageRepository = imageRepository;
-    }
 
     @Override
     public ProductDetailDTO getProductDetailDTOById(Long id) {

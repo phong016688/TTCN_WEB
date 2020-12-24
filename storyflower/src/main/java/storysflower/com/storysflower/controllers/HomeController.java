@@ -16,14 +16,11 @@ public class HomeController {
     private static final String OCCASION = "occasions";
     private static final String DEAL_PRODUCT = "dealproducts";
 
-    private final OccasionService occasionService;
+    @Autowired
+    private OccasionService occasionService;
 
-    private final DealService dealService;
-
-    public HomeController(OccasionService occasionService, DealService dealService) {
-        this.occasionService = occasionService;
-        this.dealService = dealService;
-    }
+    @Autowired
+    private DealService dealService;
 
     @GetMapping("/")
     public String getHomePage(Model model) {
